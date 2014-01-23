@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<script type="text/javascript" src="../assets/js/jquery.js"></script>
+	<script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	{% block scripts %}{% endblock %}
+</head>
+<body>
+	<nav>
+		<ul>
+			<li>Home</li>
+			<li>About</li>
+			<li>Contact</li>
+			<li>
+			{% if request.user != None %}
+				<a href="/logout">Logout</a></li>
+			{% else %}
+				<a href="/login">Login</a></li>
+			{% endif %}
+		</ul>
+	</nav>
+	{% block content %}{% endblock %}
+	<div class='footer'>
+		HomeOpCost : Developed & Designed by <a href="www.ianseyer.com">ian seyer</a>
+	</div>
+</body>
+</html>
