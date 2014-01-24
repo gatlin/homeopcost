@@ -7,6 +7,13 @@ import forms, stripe
 #end here
 
 class UserManager(BaseUserManager):
+	def create_superuser(self, first_name, last_name, email, password):
+		user = User()
+		user.email = email
+		user.set_password(password)
+		user.first_name = first_name
+		user.last_name = last_name
+
 	def create_user(self, first_name, last_name, email, password, tier, token):
 		if not (email and first_name and last_name and password):
 			raise ValueError('Not all fields. See REQUIRED_FIELDS.')
@@ -52,5 +59,3 @@ class Stripe(models.Model):
 	stripe_verified = False
 	created_at = models.DateTimeField(auto_now_add=True)
 	group = None
-
-	data = [address, stripe_id, stripe_verified, created_at, group]

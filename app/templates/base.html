@@ -2,8 +2,12 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock %}</title>
-	<script type="text/javascript" src="../assets/js/jquery.js"></script>
-	<script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap/css/bootstrap-theme.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/master.css' %}">
+	<script type="text/javascript" src="{% static 'assets/js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	{% block scripts %}{% endblock %}
 </head>
@@ -23,7 +27,25 @@
 	</nav>
 	{% block content %}{% endblock %}
 	<div class='footer'>
-		HomeOpCost : Developed & Designed by <a href="www.ianseyer.com">ian seyer</a>
+		HomeOpCost : Developed & Designed by <a href="http://www.ianseyer.com">ian seyer</a>
 	</div>
+
+	<script>
+		$('.userForm').each(function() {
+	       $(this).find('form').hide();
+	       $(this).find('.formNav li:first').addClass('active').show();
+	       $(this).find('form:first').show();
+		});
+		$('.formNav li').click(function(e){
+		   		$(this).parents('.formNav').find('li').removeClass('active');
+		       	$(this).addClass('active');
+		       	$(this).parents('.userForm').find('form').hide();
+
+		       	var activeTab = $(this).attr('class').slice(0,1);
+		       	console.log(activeTab);
+		      	$(this).parents('.userForm').find('form#'+activeTab).fadeIn();
+		       	e.preventDefault();
+		});
+	</script>
 </body>
 </html>

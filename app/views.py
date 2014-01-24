@@ -26,6 +26,7 @@ def login(request):
 def createUser(request):
 	if request.method == 'POST':
 		form = NewUserForm(request.POST)
+		cc_form = CardForm(request.POST)
 		if form.is_valid():
 			#tier will be a hidden tickbox, chosen by form UI
 			user = User.objects.create_user(email=form.cleaned_data['email'], 
@@ -38,8 +39,9 @@ def createUser(request):
 
 	else:
 		form = NewUserForm()
+		cc_form = CardForm()
 	
-	return render(request, 'createUser.html', {'form':form})
+	return render(request, 'createUser.html', {'form':form, 'cc_form':cc_form})
 
 #given user object, user.set_password(password), user.save()
 def changePassword(request):

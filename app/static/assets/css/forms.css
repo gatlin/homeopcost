@@ -1,0 +1,42 @@
+.userForm {
+	width: 80vw;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+.formNav {
+	width: 100%;
+	height: 90vh;
+	overflow: wrap;
+	position: relative;
+	display: inline;
+}
+.formNav ul{
+}
+.formNav li {
+	float: left;
+	margin-right: 10px;
+	list-style-type: none;
+	text-decoration: none;
+	width: 48%;
+	display: inline-block;
+}
+.formNav h1,h2 {
+	text-align: center;
+}
+form {
+	position: relative;
+	width: 11vw;
+	margin-left: 34.5vw;
+	max-height: 80vh;
+}
+button {
+	margin-left: 2.5vw;
+}
+form p.description {
+	width: 20vw;
+	text-align: center;
+	margin-left: -4.5vw;
+}
+label {
+	color: black;
+}

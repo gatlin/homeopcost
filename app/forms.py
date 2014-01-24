@@ -26,11 +26,6 @@ class NewUserForm(forms.Form):
 class CardForm(forms.Form):
 	cc = forms.CharField(max_length=16, widget=forms.NumberInput)
 	csv = forms.CharField(max_length=3, widget=forms.NumberInput)
-	name = forms.CharField(max_length=100)
-	address = forms.CharField(max_length=300)
-	city = forms.CharField(max_length=50)
-	state = forms.CharField(max_length=25)
-	zipcode = forms.CharField(max_length=5)
 
 	def clean(self):
 		cleaned_data = self.cleaned_data

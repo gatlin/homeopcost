@@ -1,11 +1,34 @@
 {% extends 'base.html' %}
 {% block title %}Create a User{% endblock %}
+{% block scripts %}
+	<link rel="stylesheet" type="text/css" href="/static/assets/css/forms.css">
+{% endblock %}
 {% block content %}
 	<div class = 'userForm'>
-		<form action="/createUser/" method="post">
+		<div class = 'formNav'>
+			<ul>
+				<li class='1'><h1>Tier 1</h1><h2>Looking for Data</h2></li>
+				<li class='2'><h1>Tier 2</h1><h2>I have Data</h2></li>
+			</ul>
+		</div>
+		<form class='pure-form' id = '1' action='/createUser/' method='post'>
 			{% csrf_token %}
+			<p class='description'>If you are looking for a home, and want to use the pricing data from the government, create this account!</p>
+			<fieldset class='pure-group'>
 			{{ form.as_p }}
-			<input type="submit" value="Create!" />
+			</fieldset>
+			<button type='submit' class="pure-button pure-button-primary">Create</button>
+		</form>
+		<form class='pure-form' id = '2' action="/createUser/" method="post">
+			{% csrf_token %}
+			<p class='description'>If you own a home, and know all the pricing data, create this account! In order to verify your identity, we will have to make a small charge (50 cents) to your credit card.</p>
+			<fieldset class='pure-group'>
+			{{ form.as_p }}
+			</fieldset>
+			<fieldset class='pure-group'>
+			{{ cc_form.as_p }}
+			</fieldset>
+			<button type="submit" class="pure-button pure-button-primary">Create</button>
 		</form>
 	</div>
 {% endblock %}

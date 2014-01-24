@@ -1,0 +1,23 @@
+body {
+
+}
+nav {
+	height: 5vh;
+	padding-top: 10px;
+}
+nav ul {
+	width: 100vw;
+	position: absolute;
+	left: 0;
+}
+nav li {
+	list-style-type: none;
+	text-decoration: none;
+	float: left;
+	margin-right: 10px;
+}
+.footer {
+	position: absolute;
+	bottom: 1px;
+	left: 2px;
+}
