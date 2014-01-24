@@ -1,8 +1,8 @@
 .userForm {
+	width: 100%;
 }
 .formNav {
 	height: 90vh;
-	overflow: wrap;
 	position: relative;
 	display: inline;
 }
@@ -12,11 +12,9 @@
 .formNav li {
 	width: 100%;
 	float: left;
-	margin-right: 10px;
 	text-align: center;
 	list-style-type: none;
 	text-decoration: none;
-	display: inline-block;
 }
 .formNav h1,h2 {
 	text-align: center;
