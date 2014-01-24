@@ -34,16 +34,19 @@
 		$('.userForm').each(function() {
 	       $(this).find('form').hide();
 	       $(this).find('.formNav li:first').addClass('active').show();
+	       $(this).find('.formNav li:first').css({'background-color':'rgb(203,232,107)'})
 	       $(this).find('form:first').show();
 		});
 		$('.formNav li').click(function(e){
 		   		$(this).parents('.formNav').find('li').removeClass('active');
+		   		$(this).parents('.formNav').find('li').css({'background-color':'white'});
 		       	$(this).addClass('active');
+		       	$(this).css({'background-color':'rgb(203,232,107)'});
 		       	$(this).parents('.userForm').find('form').hide();
 
 		       	var activeTab = $(this).attr('class').slice(0,1);
-		       	console.log(activeTab);
 		      	$(this).parents('.userForm').find('form#'+activeTab).fadeIn();
+
 		       	e.preventDefault();
 		});
 	</script>
