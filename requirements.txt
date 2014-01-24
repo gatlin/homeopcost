@@ -1,5 +1,7 @@
 Django==1.6.1
 South==0.8.4
+httplib2==0.8
+oauth2==1.5.211
 requests==2.2.1
 stripe==1.11.0
 wsgiref==0.1.2
